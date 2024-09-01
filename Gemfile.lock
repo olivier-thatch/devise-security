@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     devise-security (0.18.0)
-      devise (>= 4.3.0)
+      devise (>= 4.8.1)
 
 GEM
   remote: https://rubygems.org/

@@ -14,6 +14,8 @@ require 'devise-security'
 
 module RailsApp
   class Application < Rails::Application
+    config.load_defaults 7.0
+
     config.encoding = 'utf-8'
 
     config.filter_parameters += [:password]
