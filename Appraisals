@@ -10,7 +10,12 @@ appraise 'rails-7.1' do
   gem 'minitest-rails', '~> 7.1.0'
 end
 
-# appraise 'rails-7.2' do
-#   gem 'railties', '~> 7.2.0'
-#   gem 'minitest-rails', '~> 7.1.0' # TODO: Update to 7.2.0 when it is released
-# end
+appraise 'rails-7.2' do
+  gem 'railties', '~> 7.2.0'
+  gem 'minitest-rails', '~> 7.1.0' # TODO: Update to 7.2.0 when it is released
+end
+
+appraise 'rails-8.0' do
+  gem 'railties', '~> 7.2.0'
+  gem 'minitest-rails', github: "bquorning/minitest-rails", branch: "rails-8-0" # TODO: Update to 8.0.0 when it is released
+end
