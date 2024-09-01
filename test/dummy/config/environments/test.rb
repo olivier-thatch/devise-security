@@ -22,6 +22,9 @@ RailsApp::Application.configure do
 
   config.active_support.test_order = :sorted
   config.log_level = :debug
-  config.active_record.legacy_connection_handling = false
 end
-ActiveSupport::Deprecation.debug = true
+if Gem::Version.new(Rails.version) < Gem::Version.new('7.1')
+  ActiveSupport::Deprecation.debug = true
+else
+  Rails.application.deprecators.debug = true
+end

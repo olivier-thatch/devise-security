@@ -27,12 +27,11 @@ class TestPasswordArchivable < ActiveSupport::TestCase
   end
 
   test 'indirectly saving associated user does not cause deprecation warning' do
-    old_behavior = ActiveSupport::Deprecation.behavior
-    ActiveSupport::Deprecation.behavior = :raise
-    user = User.new email: generate_unique_email, password: 'Password1', password_confirmation: 'Password1'
-    widget = Widget.new(user: user)
-    widget.save
-    ActiveSupport::Deprecation.behavior = old_behavior
+    with_deprecation_behavior(:raise) do
+      user = User.new email: generate_unique_email, password: 'Password1', password_confirmation: 'Password1'
+      widget = Widget.new(user: user)
+      assert_nothing_raised { widget.save }
+    end
   end
 
   test 'does not save an OldPassword if user password was originally nil' do

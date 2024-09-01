@@ -2,8 +2,8 @@
 
 source "https://rubygems.org"
 
-gem "minitest-rails", "~> 7.0.0"
-gem "railties", "~> 7.0.1"
+gem "minitest-rails", "~> 7.1.0"
+gem "railties", "~> 7.2.0"
 gem "bigdecimal", require: false
 gem "drb", require: false
 
@@ -13,7 +13,7 @@ group :active_record do
 end
 
 group :mongoid do
-  gem "mongoid", "~> 9.0"
+  gem "mongoid", github: "AlexKovynev/mongoid", branch: "Rails72Support"
 
   group :test do
     gem "database_cleaner-mongoid", "~> 2.0"
